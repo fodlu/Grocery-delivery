@@ -28,7 +28,7 @@ const Navbar = () => {
 	const [isNavbarHidden, setIsNavbarHidden] = useState(false);
 	const lastScrollY = useRef(0);
 	const [isLoggedIn, setIsLoggedIn] = useState(
-		() => localStorage.getItem("freshmart-auth") === "true",
+		() => localStorage.getItem("freshmart_auth") === "true",
 	);
 	const { totalItems } = useCart();
 

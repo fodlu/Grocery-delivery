@@ -26,7 +26,7 @@ export const getVisibleOrders = ({
     const filtered = orders.filter(order => {
         const orderId = String(order?.orderId || "").toLowerCase();
         const customerName = String(
-            order?.customer.name || order.customerName || ""
+            order?.customer?.name || order.customerName || ""
         ).toLowerCase()
         const phone = String(order?.customer?.phone || order?.phone || "")
         const matchSearch = orderId.includes(query) || customerName.includes(query) || phone.includes(query);

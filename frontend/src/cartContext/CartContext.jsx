@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
 		});
 	};
 
-	const decreaseitem = (cartId) => {
+	const decreaseItem = (cartId) => {
 		setCartItems((current) =>
 			current
 				.map((item) =>
@@ -65,6 +65,7 @@ export const CartProvider = ({ children }) => {
 			0,
 		);
 
+
 		return {
 			cartItems,
 			setCartItems,
@@ -74,7 +75,7 @@ export const CartProvider = ({ children }) => {
 			removeItem,
 			clearCart,
 			getQuantity,
-			decreaseitem,
+			decreaseItem,
 		};
 	}, [cartItems]);
 

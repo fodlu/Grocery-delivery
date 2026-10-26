@@ -113,7 +113,7 @@ const ItemListPage = () => {
 					name: category.categoryName,
 				})),
 			]);
-			setItems(productResponse.data.products || []);
+			setItems(productResponse.data.product || []);
 		} catch (error) {
 			console.error("Failed to fetch item list:", error);
 			showToast("Failed to load items", "danger");

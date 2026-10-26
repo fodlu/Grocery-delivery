@@ -45,6 +45,7 @@ export const getHooka = async (req, res) => {
 export const updateHooka = async (req, res) => {
 	try {
 		const hooka = await Hooka.findById(req.params.id);
+		console.log(hooka);
 		if (!hooka)
 			return res
 				.success(400)

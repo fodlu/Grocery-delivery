@@ -1,4 +1,3 @@
-import React from 'react'
 import AddressPage from '../../components/AddressPage/AddressPage';
 
 const Address = () => {

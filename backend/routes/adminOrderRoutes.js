@@ -11,9 +11,9 @@ import {
 const adminOrderRouter = Router();
 
 adminOrderRouter.get("/", authMiddleware, adminMiddleware, getAllOrders);
-adminOrderRouter.get("/:id/status", authMiddleware, adminMiddleware, getSingleOrder);
+adminOrderRouter.get("/:id", authMiddleware, adminMiddleware, getSingleOrder);
 adminOrderRouter.put(
-	"/:id",
+	"/:id/status",
 	authMiddleware,
 	adminMiddleware,
 	updateOrderStatus,

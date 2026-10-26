@@ -48,7 +48,7 @@ const toHookahSearchItem = (item) => ({
 });
 
 const matchesQuery = (item, query) =>
-	[item.name, item.category, item.size, item.source]
+	[item.name, item.category, item.category, item.size, item.source]
 		.map(normalize)
 		.join(" ")
 		.includes(normalize(query));
@@ -68,8 +68,8 @@ const SearchResult = ({ query }) => {
 					getHookas(),
 				]);
 				setItem([
-					...(productResponse.data.products || []).map(toProductSearchItem),
-					...(hookaResponse.data.products || []).map(toHookahSearchItem),
+					...(productResponse.data.product || []).map(toProductSearchItem),
+					...(hookaResponse.data.hooka || []).map(toHookahSearchItem),
 				]);
 			} catch (error) {
 				console.log(error);

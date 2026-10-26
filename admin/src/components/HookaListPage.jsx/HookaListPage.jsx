@@ -41,7 +41,7 @@ const HookaListPage = () => {
 			try {
 				const { data } = await getHookas();
 				setHookas(
-					data.hookahs.map((item) => ({
+					data.hooka.map((item) => ({
 						...item,
 						image: {
 							...item.image,

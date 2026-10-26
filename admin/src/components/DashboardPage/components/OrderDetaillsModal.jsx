@@ -96,7 +96,7 @@ const OrderDetailsModal = ({
                 <InfoRow
                   icon={ShoppingCart}
                   label="Total Items"
-                  value={order.products.length}
+                  value={order?.products?.length}
                 />
                 <OrderTotalPill value={formatMoney(order.totalAmount)} />
               </div>

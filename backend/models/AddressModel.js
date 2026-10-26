@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { defaultServerConditions } from "vite";
 
 const addressSchema = new mongoose.Schema(
 	{

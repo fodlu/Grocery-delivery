@@ -27,7 +27,7 @@ const LoginPage = () => {
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		const formData = new FormData();
+		const formData = new FormData(e.target);
 
 		try {
 			setIsSubmitting(true);
@@ -53,7 +53,7 @@ const LoginPage = () => {
 			const errormsg =
 				error?.response?.data?.message || "Login failed. Please try again";
 
-			const isUnverified = errormsg.toLowerCase().include("verify");
+			const isUnverified = errormsg.toLowerCase().includes("verify");
 			if (isUnverified) {
 				navigate("/verify-email", { state: { email: formData.get("email") } });
 				return;
@@ -81,6 +81,7 @@ const LoginPage = () => {
 			}
 		}
 	};
+
 	return (
 		<main className={s.mainContainer}>
 			{/* Success Toast */}

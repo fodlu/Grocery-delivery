@@ -23,7 +23,7 @@ const emptyAddress = {
 	name: "",
 	mobile: "",
 	address: "",
-	pinCode: "",
+	pincode: "",
 	city: "",
 	landmark: "",
 	addressType: "Home",
@@ -36,19 +36,19 @@ const createId = () =>
 
 const toUiAddress = (address) => ({
 	id: address._id || address.id,
-	name: address.fullName || address.name || "",
+	name: address.fullname || address.name || "",
 	mobile: address.mobileNumber || address.mobile || "",
 	address: address.address || "",
-	pinCode: address.pinCode || "",
+	pincode: address.pincode || "",
 	city: address.city || "",
 	landmark: address.landmark || "",
 	addressType: address.addressType || "Home",
 });
 
 const toApiAddress = (address) => ({
-	fullName: address.name,
+	fullname: address.name,
 	mobileNumber: address.mobile,
-	pinCode: address.pinCode,
+	pincode: address.pincode,
 	city: address.city || "N/A",
 	landmark: address.landmark,
 	addressType: address.addressType,
@@ -110,7 +110,7 @@ const AddressPage = () => {
 
 		const nextValue =
 			name === "mobile" ? value.replace(/\D/g, "").slice(0, 10)
-			: name === "pinCode" ? value.replace(/\D/g, "").slice(0, 6)
+			: name === "pincode" ? value.replace(/\D/g, "").slice(0, 6)
 			: value;
 
 		setFormData((current) => ({
@@ -132,7 +132,7 @@ const AddressPage = () => {
 			name: formData.name.trim(),
 			mobile: formData.mobile.trim(),
 			address: formData.address.trim(),
-			pinCode: formData.pinCode.trim(),
+			pincode: formData.pincode.trim(),
 			city: formData.city.trim(),
 			landmark: formData.landmark.trim(),
 			addressType: formData.addressType,
@@ -142,7 +142,7 @@ const AddressPage = () => {
 			!nextAddress.name ||
 			!nextAddress.mobile ||
 			!nextAddress.address ||
-			!nextAddress.pinCode
+			!nextAddress.pincode
 		) {
 			return;
 		}
@@ -258,7 +258,7 @@ const AddressPage = () => {
 										{selectedAddress.address}
 										{selectedAddress.city ? `, ${selectedAddress.city}` : ""}
 									</p>
-									<p>PIN {selectedAddress.pinCode}</p>
+									<p>PIN {selectedAddress.pincode}</p>
 									{selectedAddress.landmark ?
 										<p>Landmark: {selectedAddress.landmark}</p>
 									:	null}
@@ -348,8 +348,8 @@ const AddressPage = () => {
 										<MapPin className={s.iconInput} />
 										<input
 											type='text'
-											name='pinCode'
-											value={formData.pinCode}
+											name='pincode'
+											value={formData.pincode}
 											onChange={handleChange}
 											required
 											inputMode='numeric'
@@ -483,7 +483,7 @@ const AddressPage = () => {
 											{address.city ?
 												<p>{address.city}</p>
 											:	null}
-											<p className={s.pinText}>PIN {address.pinCode}</p>
+											<p className={s.pinText}>PIN {address.pincode}</p>
 											{address.landmark ?
 												<p className={s.landmarkText}>
 													Landmark: {address.landmark}

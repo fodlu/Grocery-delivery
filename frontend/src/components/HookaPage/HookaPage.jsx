@@ -13,7 +13,7 @@ const HookaPage = ({ expanded = false }) => {
 		const fetchHookas = async () => {
 			try {
 				const { data } = await getHookas();
-				setProducts(data.hookas || []);
+				setProducts(data.hooka || []);
 			} catch (error) {
 				console.log(error);
 			}

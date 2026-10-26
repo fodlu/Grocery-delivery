@@ -24,7 +24,7 @@ const CartPage = () => {
 	const {
 		cartItems,
 		totalItems,
-		subtotal,
+		subTotal,
 		addItem,
 		decreaseItem,
 		removeItem,
@@ -35,7 +35,7 @@ const CartPage = () => {
 	const [isCheckingOut, setIsCheckingOut] = useState(false);
 	const [removingCartId, setRemovingCartId] = useState(null);
 
-	const orderTotal = subtotal > 0 ? subtotal + deliveryFee : 0;
+	const orderTotal = subTotal > 0 ? subTotal + deliveryFee : 0;
 
 	const showToast = (message, redirectTo) => {
 		setToastMessage(message);
@@ -110,6 +110,7 @@ const CartPage = () => {
 				);
 
 				const checkout = await createCheckoutSession(orderPayload);
+				console.log("Checkout session created:", checkout.data);
 				window.location.href = checkout.data.url;
 				return;
 			}
@@ -254,8 +255,8 @@ const CartPage = () => {
 
 							<div className={s.summaryDetails}>
 								<div className={s.summaryRow}>
-									<span>Subtotal</span>
-									<span>Rs {subtotal}</span>
+									<span>SubTotal</span>
+									<span>Rs {subTotal}</span>
 								</div>
 								<div className={s.summaryRow}>
 									<span>Delivery fee</span>

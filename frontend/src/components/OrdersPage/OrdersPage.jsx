@@ -326,7 +326,7 @@ const OrdersPage = () => {
               const PaymentIcon = payment.icon;
               const StatusIcon = status.icon;
               const progress = getOrderProgress(order.status);
-              const canCancel = order.status !== "cancelled";
+              // const canCancel = order.status !== "cancelled";
               const isExpanded = expandedOrderId === order.id;
 
               return (

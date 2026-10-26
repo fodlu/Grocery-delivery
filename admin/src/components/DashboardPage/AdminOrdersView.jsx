@@ -20,7 +20,7 @@ import {
 	getDashboard,
 	getSingleOrders,
 	updateOrderStatus as updateOrderStatusApi,
-} from "../../api/adminApi";
+} from "../../api/adminAPI";
 import { adminOrdersViewStyles as s } from "../../assets/dummyStyles";
 
 const getPaymentStatusForOrderStatus = (order, orderStatus) => {

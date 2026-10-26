@@ -4,6 +4,7 @@ const handle = (fn) => async (req, res) => {
 	try {
 		await fn(req, res);
 	} catch (error) {
+		console.log(error);
 		res.status(500).json({ success: false, message: error.message });
 	}
 };
@@ -19,9 +20,8 @@ export const addAddress = handle(async (req, res) => {
 });
 
 export const getAddresses = handle(async (req, res) => {
-	const addresses = await AddressModel.create({
+	const addresses = await AddressModel.find({
 		user: req.user._id,
-		...req.body,
 	}).sort({ createdAt: -1 });
 	return res
 		.status(201)

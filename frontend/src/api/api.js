@@ -14,15 +14,14 @@ API.interceptors.request.use(
 	(error) => Promise.reject(error),
 );
 
-export const registerUser = (data) => API.post("/users/register", data);
-export const verifyEmail = (data) => API.post("/users/verify-email", data);
-export const resendOTP = (data) => API.post("/users/resend-otp", data);
-export const loginUser = (data) => API.post("/users/login", data);
-export const forgotPassword = (data) =>
-	API.post("/users/forgot-password", data);
-export const resetPassword = (data) => API.post("/users/reset-password", data);
+export const registerUser = (data) => API.post("/auth/register", data);
+export const verifyEmail = (data) => API.post("/auth/verify-email", data);
+export const resendOTP = (data) => API.post("/auth/resend-otp", data);
+export const loginUser = (data) => API.post("/auth/login", data);
+export const forgotPassword = (data) => API.post("/auth/forgot-password", data);
+export const resetPassword = (data) => API.post("/auth/reset-password", data);
 
-export const getProfile = () => API.get("/users/profile");
+export const getProfile = () => API.get("/auth/profile");
 export const getCategories = () => API.get("/categories");
 export const getProducts = (params) => API.get("/products", { params });
 export const getHookas = () => API.get("/hookas");
@@ -35,8 +34,8 @@ export const getMyOrders = () => API.get(`/orders/my-orders`);
 export const cancelOrder = (id) =>
 	API.put(`/orders/${id}`, { orderStatus: "Cancelled" });
 export const createCheckoutSession = (order) =>
-	API.get(`/payment/create-session`, { order });
+	API.post(`/payment/create-session`, { order });
 export const verifyPayment = (sessionId, order) =>
-	API.get(`/payment/verify-payment`, { sessionId, order });
+	API.post(`/payment/verify-payment`, { sessionId, order });
 
 export default API;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCategories } from "../../api/api";
 import { productsPageStyles as s } from "../../assets/dummyStyles";
@@ -32,7 +32,7 @@ const ProductsPage = () => {
 							to={`/product/${encodeURIComponent(category.categoryName)}`}
 							className={s.categoryLink}
 							style={{
-								animation: "fadeUp 0.6 ease both",
+								animation: "fadeUp 0.6s ease both",
 								animationDelay: `${index * 60}ms`,
 							}}>
 							<img

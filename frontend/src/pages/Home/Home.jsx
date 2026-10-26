@@ -1,9 +1,8 @@
-import React from "react";
 import { useSearchParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import SearchResult from "../../components/SearchResult/SearchResult";
 import Banner from "../../components/Banner/Banner";
-import ProductsPage from "../../components/ProductsItemPage/ProductsPage";
+import ProductsPage from "../../components/ProductsItemPage/ProductsItemPage";
 import HookaPage from "../../components/HookaPage/HookaPage";
 import Footer from "../../components/Footer/Footer";
 

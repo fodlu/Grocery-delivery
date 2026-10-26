@@ -4,14 +4,17 @@ const handle = (fn) => async (req, res) => {
 	try {
 		await fn(req, res);
 	} catch (error) {
+		console.log(error);
 		res.status(500).json({ message: error.message, success: false });
 	}
 };
 
 const getProduct = (item) => item.product || item;
+
 const getImg = (image) =>
 	typeof image === "string" ? image : image?.url || "";
 const payLabel = (pm) => (pm === "Stripe" ? "Online" : pm);
+
 const formatOrder = (order) => ({
 	orderId: order._id,
 	customer: {
@@ -21,12 +24,12 @@ const formatOrder = (order) => ({
 		phone: order.user?.phone,
 	},
 	address: order.address,
-	producs: order.products.map((item) => {
+	products: order.products.map((item) => {
 		const p = getProduct(item);
 		const sp = p?.sellingPrice || 0;
 		return {
 			productId: item.product?._id || item.product,
-			image: img,
+			image: getImg(item.image),
 			public_id: p?.image?.public_id || "",
 			name: p?.name || "",
 			company: p?.company || "",

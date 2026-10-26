@@ -20,8 +20,8 @@ export const getDashboard = () => API.get("/admin");
 export const getAllOrders = (params) => API.get("/admin/orders", { params });
 export const getSingleOrders = (id) => API.get(`/admin/orders/${id}`);
 export const updateOrderStatus = (id, status) =>
-	API.get(`/admin/orders/${id}/status`, { orderStatus: status });
-export const deleteOrders = (id) => API.get(`/admin/orders/${id}`);
+	API.put(`/admin/orders/${id}/status`, { orderStatus: status });
+export const deleteOrders = (id) => API.delete(`/admin/orders/${id}`);
 
 // categories
 export const getCategories = () => API.get("/categories");

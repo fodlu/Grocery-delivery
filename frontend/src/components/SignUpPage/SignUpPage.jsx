@@ -31,13 +31,17 @@ const SignUpPage = () => {
 	const handleSignup = async (e) => {
 		e.preventDefault();
 		const formData = new FormData();
+
+		const rawPhone = formData.get("phone") || "";
+
+		const cleanedPhone = rawPhone.replace(/\D/g, "");
 		try {
 			setIsSubmitting(true);
 			await registerUser({
 				name: formData.get("name"),
 				email: formData.get("email"),
 				password: formData.get("password"),
-				phone: formData.get("phone").replace(/\D/g, "").slice(-10),
+				phone: cleanedPhone.slice(-10),
 			});
 			setToastVisible(true);
 
