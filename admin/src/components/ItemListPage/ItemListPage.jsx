@@ -21,7 +21,7 @@ import {
 	getProducts,
 	updateProducts,
 	uploadImage,
-} from "../../api/adminApi";
+} from "../../api/adminAPI";
 import { itemListPageStyles as s } from "../../assets/dummyStyles";
 
 // Toast component

@@ -19,7 +19,7 @@ import {
 	getHookas,
 	updateHooka,
 	uploadImage,
-} from "../../api/adminApi";
+} from "../../api/adminAPI";
 
 const HookaListPage = () => {
 	const [hookas, setHookas] = useState([]);
