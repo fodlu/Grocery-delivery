@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { addHookahPageStyles as s } from "../../assets/dummyStyles";
 import { uploadImage } from "../../utils/upload";
-import { createHooka } from "../../api/adminApi";
+import { createHooka } from "../../api/adminAPI";
 import {
 	AlertCircle,
 	ArrowRight,
