@@ -21,7 +21,7 @@ const ProductItemsPage = () => {
 				category: categoryName,
 			});
 
-			setProducts(data.products || []);
+			setProducts(data.product || []);
 		} catch (error) {
 			console.log(error);
 		}

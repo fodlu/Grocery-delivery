@@ -7,6 +7,7 @@ import LM1 from "../../assets/LM1.png";
 import RM1 from "../../assets/RM1.png";
 import BL1 from "../../assets/BL1.png";
 import BR1 from "../../assets/BR1.png";
+import { BadgePercent, Leaf, Truck } from "lucide-react";
 
 // Dummy content for the banner text, buttons, cards, and images
 export const bannerData = {
@@ -32,17 +33,17 @@ export const bannerData = {
   // Small feature cards shown below the text
   cards: [
     {
-      icon: "Leaf",
+      icon: Leaf,
       title: "100% Organic",
       text: "Clean and fresh produce",
     },
     {
-      icon: "BadgePercent",
+      icon: BadgePercent,
       title: "Best Offers",
       text: "Save more every week",
     },
     {
-      icon: "Truck",
+      icon: Truck,
       title: "Fast Delivery",
       text: "Doorstep delivery service",
     },

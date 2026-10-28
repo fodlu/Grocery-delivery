@@ -110,7 +110,7 @@ export const verifyPayment = handle(async (req, res) => {
 		return res
 			.status(400)
 			.json({ success: false, message: "Invalid order details" });
-	const address = await Address.findOne({
+	const address = await AddressModel.findOne({
 		_id: orderPayload.address,
 		user: req.user._id,
 	});
@@ -126,7 +126,7 @@ export const verifyPayment = handle(async (req, res) => {
 			success: false,
 			message: "Payment amount does not match order total",
 		});
-	const order = await Order.create({
+	const order = await OrdersModel.create({
 		user: req.user._id,
 		products: orderPayload.products,
 		address: orderPayload.address,

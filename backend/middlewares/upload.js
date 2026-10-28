@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
         try {
             callback(null, Date.now() + path.extname(file.originalname));
         } catch (error) {
-            callback9error
+            callback(error)
         }
     }
 })

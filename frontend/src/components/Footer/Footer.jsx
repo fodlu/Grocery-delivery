@@ -139,7 +139,7 @@ const Footer = () => {
 							</div>
 
 							<a
-								href='https://github.com/fodlu'
+								href='https://real-estate-opal-two.vercel.app/'
 								target='_blank'
 								rel='noreferrer'
 								className={s.websiteButton}>
@@ -175,12 +175,12 @@ const Footer = () => {
 			</div>
 
 			<style>{`
-        @keyframes torchMove {
-          0% { transform: translateX(-20%) translateY(0px); opacity: 0.45; }
-          50% { transform: translateX(20%) translateY(8px); opacity: 0.75; }
-          100% { transform: translateX(-20%) translateY(0px); opacity: 0.45; }
-        }
-      `}</style>
+				@keyframes torchMove {
+				0% { transform: translateX(-20%) translateY(0px); opacity: 0.45; }
+				50% { transform: translateX(20%) translateY(8px); opacity: 0.75; }
+				100% { transform: translateX(-20%) translateY(0px); opacity: 0.45; }
+				}
+      		`}</style>
 
 			<div className={s.glowLine} style={s.glowAnimation} />
 		</footer>

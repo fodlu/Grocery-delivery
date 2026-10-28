@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import AddressModel from "../models/AddressModel.js";
 import OrdersModel from "../models/OrdersModel.js";
 
@@ -55,8 +56,22 @@ export const getOrder = async (req, res) => {
 
 export const updateOrder = async (req, res) => {
 	try {
+		const orderInit = await OrdersModel.findById(req.params.id);
+
+		if (!orderInit) {
+			return res.status(404).json({
+				success: false,
+				message: "Order not found.",
+			});
+		}
+		if (orderInit.orderStatus !== "Processing")
+			return res.status(400).json({
+				success: false,
+				message: `Order is ${orderInit.orderStatus === "On the way" ? "On the way already" : orderInit.orderStatus} already. Updates can not be made`,
+			});
 		const order = await OrdersModel.findByIdAndUpdate(req.params.id, req.body, {
-			returnDocument: "after",
+			new: true,
+			runValidators: true,
 		});
 		if (!order) {
 			return res
@@ -67,7 +82,7 @@ export const updateOrder = async (req, res) => {
 			.status(200)
 			.json({ success: true, message: "Order updated successfully.", order });
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 		res.status(500).json({ success: false, message: error.message });
 	}
 };

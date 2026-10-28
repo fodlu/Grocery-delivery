@@ -17,14 +17,14 @@ export const registerUser = handle(async (req, res) => {
 	const { name, email, phone, password } = req.body;
 	if (!name || !email || !password || !phone) {
 		return res
-		.status(400)
-		.json({ success: false, message: "All fields are required" });
+			.status(400)
+			.json({ success: false, message: "All fields are required" });
 	}
 	const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
 	if (existingUser)
 		return res
-	.status(400)
-	.json({ success: false, message: "User already exists." });
+			.status(400)
+			.json({ success: false, message: "User already exists." });
 
 	const hashedPassword = await bcrypt.hash(password, 10);
 	const otp = generateOtp();
@@ -65,6 +65,7 @@ export const verifyEmail = handle(async (req, res) => {
 			.status(400)
 			.json({ success: false, message: "email already verified" });
 	}
+
 	if (
 		!user.verifyOtp ||
 		!user.verifyOtpExpire ||
@@ -112,7 +113,6 @@ export const resendOtp = handle(async (req, res) => {
 
 export const loginUser = handle(async (req, res) => {
 	const { email, password } = req.body;
-	console.log(email, password)
 	if (!email || !password)
 		return res
 			.status(400)
