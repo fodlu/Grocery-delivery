@@ -30,7 +30,7 @@ const SignUpPage = () => {
 
 	const handleSignup = async (e) => {
 		e.preventDefault();
-		const formData = new FormData();
+		const formData = new FormData(e.currentTarget);
 
 		const rawPhone = formData.get("phone") || "";
 
